@@ -1,5 +1,6 @@
 import "./Hero.css";
 
+
 function Hero(){
     return (
         <section className="hero">
@@ -9,7 +10,14 @@ function Hero(){
                 for your baby.
             </p>
 
-            <button>Explore Music</button>
+            <button>Explore Music
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
         </section>
     );

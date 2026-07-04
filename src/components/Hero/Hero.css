@@ -1,0 +1,146 @@
+.hero{
+    background-image: url("./hero-background.jpg");
+    /* width: 100%; */
+    background-size:cover;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    padding: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    min-height:100vh;
+    align-items: center;
+    -webkit-user-select:none;
+    user-select: none;
+}
+
+button{
+ position: relative;
+ display: inline-block;
+ color: rgba(255, 255, 255, 4);
+ font-size: 1.5em;
+ letter-spacing: .1em;
+ text-transform: uppercase;
+background-color: #262c37;
+padding: 15px 30px;
+transition: .5s;
+max-width: 15em;
+justify-content: center;
+margin-top: 20px;
+border: none;
+-webkit-user-select: none;
+user-select: none;
+}
+
+button:hover{
+   color: #00eeff;
+   letter-spacing: .25em;
+    text-shadow: .1px .1px 5px #00eeff;
+}
+
+button span{
+ position: absolute;
+ display: block;
+ background: #00eeff;   
+}
+
+button span:nth-child(1){
+    left: 0;
+    top: 0;
+    width: 50.5%;
+    height: 2.5px;
+    transform: scaleX(0);
+    transition: transform .5s;
+    transform-origin: left;
+}
+
+
+button:hover span:nth-child(1){
+    transform: scaleX(1); 
+    transform-origin: right;
+}
+
+button span:nth-child(2){
+    right: 0;
+    top: 0;
+    width: 50.5%;
+    height: 2.5px;
+    transform: scaleX(0);
+    transition: transform .5s;
+    transform-origin: right;
+}
+
+
+button:hover span:nth-child(2){
+    transform: scaleY(1); 
+    transform-origin: left;
+}
+
+button span:nth-child(3){
+    right: 0;
+    top: 0;
+    width: 2.5px;
+    height: 100%;
+    transform: scaleY(0);
+    transition: transform .5s;
+    transition-delay: 0.4s;
+    transform-origin: bottom;
+}
+
+
+ button:hover span:nth-child(3){
+    transform: scaleX(1); 
+    transform-origin: top;
+}
+ 
+ button span:nth-child(4){
+    left: 0;
+    bottom: 0;
+    width: 50.5%;
+    height: 2.5px;
+    transform: scaleX(0);
+    transition: transform .5s;
+    transition-delay: .8s;
+    transform-origin: right;
+} 
+
+
+button:hover span:nth-child(4){
+    transform: scaleX(1); 
+    transform-origin: left;
+}
+   
+
+button span:nth-child(5){
+    right: 0;
+    bottom: 0;
+    width: 50.5%;
+    height: 2.5px;
+    transform: scaleX(0);
+    transition: transform .5s;
+    transition-delay: .8s;
+    transform-origin: left;
+    
+}
+
+
+button:hover span:nth-child(5){
+    transform: scaleX(1); 
+    transform-origin: right;
+} 
+ 
+button span:nth-child(6){
+    left: 0;
+    top: 0;
+    width: 2.5px;
+    height: 100%;
+    transform: scaleY(0);
+    transition: transform .5s;
+    transition-delay: 0.4s;
+    transform-origin: bottom;
+} 
+
+
+button:hover span:nth-child(6){
+    transform: scaleX(1); 
+    transform-origin: top;
+} 
