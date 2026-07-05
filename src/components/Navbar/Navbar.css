@@ -100,7 +100,8 @@ ul{
     border-radius: 50px;
     transition: 1s ease;
     color: #fff;
-    /* text-wrap: nowrap; */
+    white-space: nowrap;
+    text-wrap: nowrap;
 }
 
 .nav-menu li a:hover{
