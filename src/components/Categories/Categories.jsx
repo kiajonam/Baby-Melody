@@ -1,0 +1,29 @@
+import "./Categories.css";
+import categories from "../../data/categories";
+import CategoryCard from "../CategoryCard/CategoryCard";
+
+
+function Categories() {
+  // const {slug} = useParams();
+  // console.log(slug)
+  return (
+    <div className="box">
+         {categories.map((category) => (
+        
+        <section key={category.id}>
+          <CategoryCard
+            title={category.title}
+            description={category.description}
+            songs={category.songs}
+            image={category.image}
+            slug={category.slug}
+          />
+        </section>
+      ))}
+    </div>
+     
+    
+  );
+}
+
+export default Categories;
