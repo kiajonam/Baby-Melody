@@ -1,11 +1,16 @@
+/**
+ * Displays all music categories.
+ * Renders CategoryCard components using the categories data.
+ */
+
 import "./Categories.css";
 import categories from "../../data/categories";
 import CategoryCard from "../CategoryCard/CategoryCard";
 
 
+
 function Categories() {
-  // const {slug} = useParams();
-  // console.log(slug)
+
   return (
     <div className="box">
          {categories.map((category) => (

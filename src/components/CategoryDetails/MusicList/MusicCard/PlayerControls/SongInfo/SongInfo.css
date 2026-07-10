@@ -1,0 +1,19 @@
+
+.music-info{
+    text-align: left;
+    display: flex;
+    gap: 1px;
+    line-height: 15px;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 0.6rem;
+}
+
+.music-info a{
+    text-decoration: none;
+    color: #06050e;
+}
+
+.music-info a:nth-child(2){
+    color: #9d9d9d !important;
+}

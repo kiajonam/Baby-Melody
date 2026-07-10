@@ -1,0 +1,17 @@
+.progress-bar{
+    display: flex;
+    max-width: 600px;
+    padding: 20px;
+    margin-left: 150px;
+    
+}
+
+
+
+.progress-fill{
+    background-color: #000;
+    height: 2px;
+    width: 700px;
+    border-radius: 100px;
+    
+}

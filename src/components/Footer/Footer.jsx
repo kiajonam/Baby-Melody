@@ -1,3 +1,8 @@
+/**
+ * Displays the website footer.
+ * Contains navigation and additional links.
+ */
+
 import "./Footer.css";
 
 function Footer(){

@@ -1,0 +1,41 @@
+
+.music-details{
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+.music-details img{
+    display: block;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: all 1s ease;
+    
+}
+
+
+.play-overlay svg{
+    width: 15px;
+    height: 15px;
+    color: #fff;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.music-row:hover .music-details .play-overlay svg{
+    opacity: 1;
+}
+.play-overlay{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.music-row:hover .play-overlay{
+    opacity:1;
+    
+}

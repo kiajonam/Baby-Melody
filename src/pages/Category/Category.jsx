@@ -1,14 +1,27 @@
-import Button from "../../components/Button/Button";
+/**
+ * Displays the selected category page.
+ * Retrieves the category based on the URL slug.
+ */
 
 import { useParams } from "react-router-dom";
+import categories from "../../data/categories";
+import CategoryDetails from "../../components/CategoryDetails/CategoryDetails";
+import music from "../../data/music";
 
 export default function Category(){
+
     const {slug} = useParams();
-    console.log(slug)
+     const filteredSongs = music.filter(song => song.category === slug);
+     console.log(filteredSongs);
+     
+    const category = categories.find(item => item.slug===slug)
+    // console.log(category)
+    
     return(
         <>
-            <h1>{slug}</h1>
-            <Button />
+            <CategoryDetails category={category}
+                songs={filteredSongs}
+            />
         </>
     )
 }

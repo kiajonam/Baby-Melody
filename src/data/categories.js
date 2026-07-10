@@ -1,3 +1,4 @@
+
 import RelsxImasge from "../assets/images/categories-image/id1.jpg";
 import Nature from "../assets/images/categories-image/id2.jpg";
 import WhiteNois from "../assets/images/categories-image/id3.jpg";

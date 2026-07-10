@@ -1,0 +1,20 @@
+.music-row{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    margin:10px;
+    align-items: stretch;
+    width: 100%;
+    border-radius: 10px;
+    height: 67px;
+    align-items: center;
+    cursor: pointer;
+    
+}
+
+.music-row:hover{
+ background-color: #dbdbdb;
+
+}
+

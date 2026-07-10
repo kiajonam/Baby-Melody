@@ -1,0 +1,14 @@
+
+.category-details-page{
+    background: #fbf9f9;
+    border-radius: 12px;
+    margin: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    -webkit-user-select:none;
+    user-select: none;
+    /* max-width: 1950px; */
+   
+}
+

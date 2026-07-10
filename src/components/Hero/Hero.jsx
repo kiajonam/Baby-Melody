@@ -1,3 +1,7 @@
+/**
+ * Renders the hero section on the home page.
+ * Introduces the Baby Melody application.
+ */
 import "./Hero.css";
 
 

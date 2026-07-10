@@ -1,3 +1,7 @@
+/**
+ * Displays the main navigation bar.
+ * Provides links to different sections of the website.
+ */
 import "./Navbar.css";
 
 

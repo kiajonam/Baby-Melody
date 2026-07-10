@@ -10,10 +10,11 @@
     transition: all 0.2s ease-out;
     -webkit-user-select:none;
     user-select: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9)
 }
 
 .category-card:hover{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.9);
 }
 
 .category-card img{

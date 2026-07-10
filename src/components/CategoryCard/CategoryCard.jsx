@@ -1,5 +1,8 @@
+/**
+ * Displays a single music category card.
+ * Receives category data through props.
+ */
 
-// import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 import "./CategoryCard.css";

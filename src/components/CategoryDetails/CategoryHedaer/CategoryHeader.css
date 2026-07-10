@@ -1,0 +1,15 @@
+.category-header-img{
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    
+}
+
+.category-details-page p{
+    color: #929293;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
