@@ -8,16 +8,12 @@ import Categories from "../../components/Categories/Categories";
 
 
 function Home(){
-    return(
+    return (
 <>
-
-     <Navbar />    
+    <Navbar />    
     <Hero /> 
     <Categories />
-    
-    <Footer />
-
-   
+    <Footer />   
 </>
 
     );

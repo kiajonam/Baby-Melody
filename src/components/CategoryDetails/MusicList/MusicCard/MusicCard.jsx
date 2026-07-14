@@ -7,15 +7,18 @@ import "./MusicCard.css";
 import PlayButton from "./PlayerControls/PlayButton/PlayButton";
 import ProgressBar from "./PlayerControls/ProgressBar/ProgressBar";
 import SongInfo from "./PlayerControls/SongInfo/SongInfo";
-export default function MusicCard({ song, onPlay }) {
+
+export default function MusicCard({ song, onPlay,currentSong, isPlaying }) {
     
     return (
     <div className="music-row">
-    <PlayButton song={song} onPlay={onPlay}  />
+    <PlayButton song={song} onPlay={onPlay} currentSong={currentSong} isPlaying={isPlaying} />
     <SongInfo song={song} />
     <ProgressBar />
     </div>
         
     );
 }
+
+
 

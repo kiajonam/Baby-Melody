@@ -13,23 +13,34 @@ import { useRef, useState, useEffect} from "react";
 export default function CategoryDetails({category, songs}){
 
     const [currentSong, setCurrentSong] = useState(null);
+    const [isPlaying, setIsPlaying] = useState(false);
 
     const audioRef = useRef(null);
 
          useEffect(()=>{
-            if(currentSong){
+            if(!audioRef.current || !currentSong) return;
+
+            if(isPlaying){
                 audioRef.current.play();
             }
-         },[currentSong])
+            else{
+                audioRef.current.pause();
+            }
+         },[currentSong, isPlaying])
+
 
     function handlePlay(song){
+        if(currentSong?.id === song.id && isPlaying){
+            setIsPlaying(false);
+            return;
+        }
 
-        setCurrentSong(song)
+        setCurrentSong(song);
+        setIsPlaying(true);
+
+        
         
    }
-
-   
-  
 
     return (
         <>
@@ -37,7 +48,7 @@ export default function CategoryDetails({category, songs}){
         <div className="category-details-page">
         
         <CategoryHeader category={category} /> 
-        <MusicList songs={songs} onPlay={handlePlay} />    
+        <MusicList songs={songs} onPlay={handlePlay} currentSong={currentSong} isPlaying={isPlaying}/>    
            
 
            <audio ref={audioRef} src={currentSong?.audio}></audio>

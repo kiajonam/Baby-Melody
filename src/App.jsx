@@ -11,6 +11,7 @@ import Category from "./pages/Category/Category"
 function  App(){
     return(
         <Routes>
+            
             <Route path="/" element={<Home />} />
             <Route path="/category/:slug" element={<Category />} />
         
