@@ -12,7 +12,7 @@ export default function Category(){
 
     const {slug} = useParams();
      const filteredSongs = music.filter(song => song.category === slug);
-     console.log(filteredSongs);
+    
      
     const category = categories.find(item => item.slug===slug)
     // console.log(category)

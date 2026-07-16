@@ -57,12 +57,20 @@ export default function CategoryDetails({category, songs}){
     setDuration(audioRef.current.duration);
    }
 
+
+   function handleSeek(percentage){
+    console.log(percentage)
+   }
+
+
+
     return (
         <>
         
         <div className="category-details-page">        
         <CategoryHeader category={category} /> 
-        <MusicList songs={songs} onPlay={handlePlay} currentSong={currentSong} isPlaying={isPlaying} currentTime={currentTime} duration={duration}/>  
+
+        <MusicList songs={songs} onPlay={handlePlay} currentSong={currentSong} isPlaying={isPlaying} currentTime={currentTime} duration={duration} onSeek={handleSeek}  />  
         
     
            

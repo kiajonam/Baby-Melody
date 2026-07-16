@@ -5,7 +5,8 @@ export default function ProgressBar({
     currentTime,
      duration,
      currentSong, 
-     song
+     song,
+     onSeek
     })
     {
       
@@ -18,10 +19,24 @@ export default function ProgressBar({
         return `${minutes}: ${seconds}`
     }
 
+    function handleClick(event){
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const clickX = event.clientX - rect.left;
+    const percentage = clickX / rect.width;
+    onSeek(percentage);
+
+    // console.log({percentage});
+
+    
+    // console.log(event.currentTarget.getBoundingClientRect());
+    // console.log(event.clientX)
+    }
+
     return(
         <div className="progress-container">
 
-            <div className="progress-bar">
+            <div className="progress-bar" onClick={handleClick}>
                 
            <div className="progress-fill" style={{width: `${progress}%`}}></div> 
            
