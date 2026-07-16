@@ -1,16 +1,11 @@
 .music-row{
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-    padding: 10px;
-    margin:10px;
-    align-items: stretch;
-    width: 100%;
-    border-radius: 10px;
-    height: 67px;
+     display:flex;
+    align-items:center;
+    padding:  10px 30px 10px 10px;
+    gap:24px;
     align-items: center;
-    cursor: pointer;
-    
+    margin: 10px;
+    border-radius: 10px;
 }
 
 .music-row:hover{

@@ -1,18 +1,16 @@
-import "./CategoryHeader.css"
+import "./CategoryHeader.css";
+import heroVideo from "../../../assets/video/hero.mp4";
 
-export default function CategoryHeader({category}){
+
+
+export default function CategoryHeader(){
     return(
               <header className="category-header">
-                 <img className="category-header-img" src={category.image} alt={category.title} />
-            
-            <div className="category-details">
-               
-                <h3>{category.title}</h3>
-                <p>{category.description}</p>
-                <p>{category.songs}</p>
-                
+
+                <div className="header-container">
+                    <video className="category-header-video" src={heroVideo} autoPlay muted loop playsInline></video>
                 </div>
-            
+              
             </header>
     )
 }

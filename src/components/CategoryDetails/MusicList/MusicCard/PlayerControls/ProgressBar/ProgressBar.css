@@ -1,17 +1,43 @@
-.progress-bar{
+.progress-container{
     display: flex;
-    max-width: 600px;
-    padding: 20px;
-    margin-left: 150px;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+
+    min-height: 0;
+}
+
+.progress-bar{
+    flex:1;
+
+    height:5px;
+
+    background:#ddd;
+
+    border-radius:999px;
+
+    overflow:hidden;
     
 }
 
 
 
 .progress-fill{
-    background-color: #000;
-    height: 2px;
-    width: 700px;
-    border-radius: 100px;
-    
+    height:100%;
+
+    background:black;
+
+    transition:.2s;
 }
+
+.time{
+   
+    width:90px;
+    color: #000000;
+    text-align:center;
+
+    white-space:nowrap;
+
+    flex-shrink:0;
+}
+

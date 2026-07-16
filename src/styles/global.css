@@ -1,6 +1,8 @@
 body{
 font-family:Poppins;
 background:#f7efef;
+user-select: none;
+-webkit-user-drag: none;
 }
 
 *{

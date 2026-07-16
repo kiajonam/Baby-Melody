@@ -2,11 +2,14 @@
 
 import MusicCard from "./MusicCard/MusicCard";
 
-export default function MusicList({songs, onPlay,isPlaying,currentSong}){
+export default function MusicList({songs, onPlay,isPlaying,currentSong,currentTime, duration }){
     return(
         <div className="musicCards">
             {songs.map(song => (
-                <MusicCard song={song} key={song.id} onPlay={onPlay} currentSong={currentSong} isPlaying={isPlaying}/>
+                <MusicCard song={song} key={song.id} onPlay={onPlay} currentSong={currentSong} isPlaying={isPlaying}
+                currentTime={currentTime}
+                duration={duration}
+                />
             ))}
         </div>
     )

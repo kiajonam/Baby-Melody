@@ -78,6 +78,13 @@ const categories = [
     description:"Gentle melodies for sweet dreams.",
     songs:"28 Songs",
     image: E,
+  },
+    {id: 10,
+    title: "Sleep",
+    slug: "sleep",
+    description:"Relaxing lullabies for peaceful sleep.",
+    songs:"15 Songs",
+    image: RelsxImasge
   }
 ];
 
