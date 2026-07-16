@@ -59,7 +59,14 @@ export default function CategoryDetails({category, songs}){
 
 
    function handleSeek(percentage){
+
+    if(!audioRef.current) return;
+    const newTime = duration * percentage;
+    audioRef.current.currentTime = newTime;
+    setCurrentTime(newTime)
+    
     console.log(percentage)
+    console.log(newTime)
    }
 
 
