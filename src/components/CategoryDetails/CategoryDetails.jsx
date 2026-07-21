@@ -17,9 +17,11 @@ export default function CategoryDetails({category, songs}){
     const [currentSong, setCurrentSong] = useState(null);
     const [isPlaying, setIsPlaying] = useState(false);
     
+    
 
 
 
+    
     const audioRef = useRef(null);
 
     
@@ -51,12 +53,15 @@ export default function CategoryDetails({category, songs}){
 
    function handleTimeUpdate(){
     setCurrentTime(audioRef.current.currentTime);
+    // console.log("TimeUpdate:", audioRef.current.currentTime);
    }
 
    function handleLoadedMetadata(){
+    console.log(audioRef.current.duration);
     setDuration(audioRef.current.duration);
    }
 
+   
 
    function handleSeek(percentage){
 
@@ -64,9 +69,8 @@ export default function CategoryDetails({category, songs}){
     const newTime = duration * percentage;
     audioRef.current.currentTime = newTime;
     setCurrentTime(newTime)
-    
-    console.log(percentage)
-    console.log(newTime)
+    console.log("newTime:", newTime)
+    console.log("duration",  duration)
    }
 
 
