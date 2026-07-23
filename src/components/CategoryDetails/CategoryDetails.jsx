@@ -2,94 +2,48 @@
  * Displays the selected category and its music tracks.
  * Receives the category object and filtered songs as props.
  */
-
+import useAudioPlayer from "../../hooks/useAudioPlayer";
 import "./CategoryDetails.css";
 import CategoryHeader from "./CategoryHedaer/CategoryHeader";
 import MusicList from "./MusicList/MusicList";
 
+export default function CategoryDetails({ category, songs }) {
+  const {
+    currentSong,
+    handleSongClick,
+    currentTime,
+    duration,
+    audioRef,
+    handleSeek,
+    handleLoadedMetadata,
+    handleTimeUpdate,
+    isPlaying,
+    handleEnded,
+  } = useAudioPlayer(songs);
 
-import { useRef, useState, useEffect} from "react";
+  return (
+    <>
+      <div className="category-details-page">
+        <CategoryHeader category={category} />
 
-// import Button from "../Button/Button";
+        <MusicList
+          songs={songs}
+          onPlay={handleSongClick}
+          duration={duration}
+          currentSong={currentSong}
+          currentTime={currentTime}
+          onSeek={handleSeek}
+          isPlaying={isPlaying}
+        />
 
-export default function CategoryDetails({category, songs}){
-
-    const [currentSong, setCurrentSong] = useState(null);
-    const [isPlaying, setIsPlaying] = useState(false);
-    
-    
-
-
-
-    
-    const audioRef = useRef(null);
-
-    
-    const [currentTime, setCurrentTime] = useState(0)
-    const [duration, setDuration] = useState(0);
-
-         useEffect(()=>{
-            if(!audioRef.current || !currentSong) return;
-
-            if(isPlaying){
-                audioRef.current.play();
-            }
-            else{
-                audioRef.current.pause();
-            }
-         },[currentSong, isPlaying])
-
-
-    function handlePlay(song){
-        if(currentSong?.id === song.id && isPlaying){
-            setIsPlaying(false);
-            return;
-        }
-
-        setCurrentSong(song);
-        setIsPlaying(true);
-        
-   }
-
-   function handleTimeUpdate(){
-    setCurrentTime(audioRef.current.currentTime);
-    // console.log("TimeUpdate:", audioRef.current.currentTime);
-   }
-
-   function handleLoadedMetadata(){
-    console.log(audioRef.current.duration);
-    setDuration(audioRef.current.duration);
-   }
-
-   
-
-   function handleSeek(percentage){
-
-    if(!audioRef.current) return;
-    const newTime = duration * percentage;
-    audioRef.current.currentTime = newTime;
-    setCurrentTime(newTime)
-    console.log("newTime:", newTime)
-    console.log("duration",  duration)
-   }
-
-
-
-    return (
-        <>
-        
-        <div className="category-details-page">        
-        <CategoryHeader category={category} /> 
-
-        <MusicList songs={songs} onPlay={handlePlay} currentSong={currentSong} isPlaying={isPlaying} currentTime={currentTime} duration={duration} onSeek={handleSeek}  />  
-        
-    
-           
-
-           <audio ref={audioRef} src={currentSong?.audio} onLoadedMetadata={handleLoadedMetadata} onTimeUpdate={handleTimeUpdate} ></audio>
-        </div>
-        </>
-    )
-
-
+        <audio
+          ref={audioRef}
+          src={currentSong?.audio}
+          onLoadedMetadata={handleLoadedMetadata}
+          onTimeUpdate={handleTimeUpdate}
+          onEnded={handleEnded}
+        ></audio>
+      </div>
+    </>
+  );
 }

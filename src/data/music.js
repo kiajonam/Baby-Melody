@@ -158,6 +158,14 @@ const music = [
     audio: "/music/nature/rain4.mp3",
     image: baby,
   },
+   {
+    id: 20,
+    category: "sleep",
+    title: "Rainy Day ",
+    artist: "Pixabay",
+    audio: "/music/nature/rain4.mp3",
+    image: baby,
+  },
 ];
 
 export default music;

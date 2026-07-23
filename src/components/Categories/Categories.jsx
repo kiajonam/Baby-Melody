@@ -15,7 +15,7 @@ function Categories() {
     <div className="box">
          {categories.map((category) => (
         
-        <section key={category.id}>
+        <div key={category.id}>
           <CategoryCard
             title={category.title}
             description={category.description}
@@ -23,7 +23,7 @@ function Categories() {
             image={category.image}
             slug={category.slug}
           />
-        </section>
+        </div>
       ))}
     </div>
      
