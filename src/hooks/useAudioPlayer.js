@@ -32,20 +32,46 @@ export default function useAudioPlayer(songs) {
     setCurrentTime(newTime);
   }
 
-  function handleEnded() {
-    if (!songs || songs.length === 0) return;
+
+
+  function getNextSong() {
+    if (!songs || songs.length === 0) return null;
     const currentIndex = songs.findIndex((s) => s.id === currentSong?.id);
     const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % songs.length : 0;
-    const nextSong = songs[nextIndex];
-    playSong(nextSong);
+    return songs[nextIndex];
+  }
+
+  function getPreviousSong() {
+    if (!songs || songs.length === 0) return null;
+    const currentIndex = songs.findIndex((s) => s.id === currentSong?.id);
+    const prevIndex = currentIndex > 0 ? currentIndex - 1 : (songs.length - 1);
+    return songs[currentIndex >= 0 ? prevIndex : 0];
+  }
+
+  function handleNext(){
+    const nextSong = getNextSong();
+    if(nextSong){
+      playSong(nextSong);
+    }
+  }
+
+  function handlePrev(){
+    const prevSong = getPreviousSong();
+    if(prevSong){
+      playSong(prevSong);
+    }
+  }
+
+    function handleEnded() {
+    handleNext()
+    // playSong(nextSong);
   }
 
   function playSong(song) {
     setCurrentSong(song);
     setIsPlaying(true);
   }
-
-  useEffect(() => {
+   useEffect(() => {
     if (!audioRef.current || !currentSong) return;
 
     if (isPlaying) {
@@ -71,5 +97,9 @@ export default function useAudioPlayer(songs) {
     handleSeek,
     handleEnded,
     playSong,
+    getNextSong,
+    getPreviousSong,
+    handleNext,
+    handlePrev
   };
 }
