@@ -71,6 +71,10 @@ export default function useAudioPlayer(songs) {
     setCurrentSong(song);
     setIsPlaying(true);
   }
+
+  function togglePlayPause(){
+    setIsPlaying((prev) => !prev);
+  }
    useEffect(() => {
     if (!audioRef.current || !currentSong) return;
 
@@ -100,6 +104,7 @@ export default function useAudioPlayer(songs) {
     getNextSong,
     getPreviousSong,
     handleNext,
-    handlePrev
+    handlePrev,
+    togglePlayPause
   };
 }

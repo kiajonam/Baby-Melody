@@ -21,6 +21,8 @@ export default function MusicCard({ song, onPlay,currentSong, isPlaying, current
      song={song} 
      onSeek={onSeek}           
                 />
+
+                
     </div>
         
     );

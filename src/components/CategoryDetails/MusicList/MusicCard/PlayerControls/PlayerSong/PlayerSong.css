@@ -1,0 +1,23 @@
+.player-song{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    
+}
+
+.player-song img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.player-song-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.player-song-info p{
+  margin: 0;
+  font-size: .9rem;
+  color: #777;
+}

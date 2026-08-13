@@ -1,0 +1,9 @@
+.player-buttons{
+    display: flex;
+    
+}
+
+.player-buttons .btns{
+color: #000;
+background-color: transparent;
+}

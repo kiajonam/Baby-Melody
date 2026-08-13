@@ -5,6 +5,7 @@
 import useAudioPlayer from "../../hooks/useAudioPlayer";
 import "./CategoryDetails.css";
 import CategoryHeader from "./CategoryHedaer/CategoryHeader";
+import PlayerControls from "./MusicList/MusicCard/PlayerControls/PlayerControls";
 import MusicList from "./MusicList/MusicList";
 
 export default function CategoryDetails({ category, songs }) {
@@ -19,6 +20,9 @@ export default function CategoryDetails({ category, songs }) {
     handleTimeUpdate,
     isPlaying,
     handleEnded,
+    handleNext,
+    handlePrev,
+    togglePlayPause
   } = useAudioPlayer(songs);
 
   return (
@@ -43,6 +47,13 @@ export default function CategoryDetails({ category, songs }) {
           onTimeUpdate={handleTimeUpdate}
           onEnded={handleEnded}
         ></audio>
+
+        <PlayerControls  currentSong={currentSong} handlePrev={handlePrev}
+    togglePlayPause={togglePlayPause}
+    handleNext={handleNext}
+    currentSong={currentSong}
+    isPlaying={isPlaying}/>
+        
       </div>
     </>
   );

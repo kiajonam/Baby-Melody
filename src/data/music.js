@@ -88,7 +88,7 @@ const music = [
   },
   {
     id: 11,
-    category: "",
+    category: "sleep",
     title: "Forest Rain",
     artist: "Pixabay",
     audio: "/music/nature/rain2.mp3",
@@ -96,7 +96,7 @@ const music = [
   },
   {
     id: 12,
-    category: "",
+    category: "sleep",
     title: "River Flow",
     artist: "Pixabay",
     audio: "/music/nature/river3.mp3",
@@ -112,7 +112,7 @@ const music = [
   },
   {
     id: 14,
-    category: "",
+    category: "sleep",
     title: "Rainy Day ",
     artist: "Pixabay",
     audio: "/music/nature/rain4.mp3",
