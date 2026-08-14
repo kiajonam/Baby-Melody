@@ -10,10 +10,13 @@ import Categories from "../../components/Categories/Categories";
 function Home(){
     return (
 <>
+
     <Navbar />    
     <Hero /> 
     <Categories />
-    <Footer />   
+    <Footer />
+
+       
 </>
 
     );

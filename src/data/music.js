@@ -3,6 +3,16 @@
  * Each track belongs to a specific music category.
  */
 import baby from "../assets/images/categories-image/id1.jpg";
+import RelsxImasge from "../assets/images/categories-image/id1.jpg";
+import Nature from "../assets/images/categories-image/id2.jpg";
+import WhiteNois from "../assets/images/categories-image/id3.jpg";
+import ChillNight from "../assets/images/categories-image/id4.jpg";
+import A from "../assets/images/categories-image/id5.jpg";
+import B from "../assets/images/categories-image/id6.jpg";
+import C from "../assets/images/categories-image/id7.jpg";
+import D from "../assets/images/categories-image/id8.jpg";
+import E from "../assets/images/categories-image/id9.jpg";
+
 
 const music = [
   {
@@ -11,7 +21,7 @@ const music = [
     title: "Morning Birds",
     artist: "Pixabay",
     audio: "/music/nature/birds.mp3",
-    image: baby,
+    image: D,
   },
   {
     id: 2,
@@ -19,7 +29,7 @@ const music = [
     title: "Forest Rain",
     artist: "Pixabay",
     audio: "/music/nature/rain2.mp3",
-    image: baby,
+    image: B,
   },
   {
     id: 3,
@@ -27,7 +37,7 @@ const music = [
     title: "River Flow",
     artist: "Pixabay",
     audio: "/music/nature/river3.mp3",
-    image: baby,
+    image: C,
   },
   {
     id: 4,
@@ -44,7 +54,7 @@ const music = [
     title: "Rainy Day ",
     artist: "Pixabay",
     audio: "/music/nature/rain4.mp3",
-    image: baby,
+    image: WhiteNois,
   },
   {
     id: 6,
@@ -52,7 +62,7 @@ const music = [
     title: "Morning Birds",
     artist: "Pixabay",
     audio: "/music/nature/birds.mp3",
-    image: baby,
+    image: RelsxImasge,
   },
   {
     id: 7,
@@ -60,7 +70,7 @@ const music = [
     title: "Forest Rain",
     artist: "Pixabay",
     audio: "/music/nature/rain2.mp3",
-    image: baby,
+    image: E,
   },
   {
     id: 8,
@@ -68,7 +78,7 @@ const music = [
     title: "River Flow",
     artist: "Pixabay",
     audio: "/music/nature/river3.mp3",
-    image: baby,
+    image: ChillNight,
   },
   {
     id: 9,
@@ -76,7 +86,7 @@ const music = [
     title: "Night Rain",
     artist: "Pixabay",
     audio: "/music/nature/rain2.mp3",
-    image: baby,
+    image: WhiteNois,
   },
   {
     id: 10,
@@ -84,7 +94,7 @@ const music = [
     title: "Rainy Day ",
     artist: "Pixabay",
     audio: "/music/nature/rain4.mp3",
-    image: baby,
+    image: Nature,
   },
   {
     id: 11,
@@ -92,15 +102,15 @@ const music = [
     title: "Forest Rain",
     artist: "Pixabay",
     audio: "/music/nature/rain2.mp3",
-    image: baby,
+    image: Nature,
   },
   {
-    id: 12,
+    id: 13,
     category: "sleep",
     title: "River Flow",
     artist: "Pixabay",
     audio: "/music/nature/river3.mp3",
-    image: baby,
+    image: A,
   },
   {
     id: 13,
@@ -108,7 +118,7 @@ const music = [
     title: "Night Rain",
     artist: "Pixabay",
     audio: "/music/nature/rain2.mp3",
-    image: baby,
+    image: A,
   },
   {
     id: 14,
@@ -116,7 +126,7 @@ const music = [
     title: "Rainy Day ",
     artist: "Pixabay",
     audio: "/music/nature/rain4.mp3",
-    image: baby,
+    image: A,
   },
   {
     id: 15,
@@ -124,7 +134,7 @@ const music = [
     title: "Morning Birds",
     artist: "Pixabay",
     audio: "/music/nature/birds.mp3",
-    image: baby,
+    image: A,
   },
   {
     id: 16,
@@ -156,7 +166,7 @@ const music = [
     title: "Rainy Day ",
     artist: "Pixabay",
     audio: "/music/nature/rain4.mp3",
-    image: baby,
+    image: A,
   },
    {
     id: 20,
@@ -164,7 +174,7 @@ const music = [
     title: "Rainy Day ",
     artist: "Pixabay",
     audio: "/music/nature/rain4.mp3",
-    image: baby,
+    image: A,
   },
 ];
 

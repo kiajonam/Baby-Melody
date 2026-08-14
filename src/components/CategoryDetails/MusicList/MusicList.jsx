@@ -1,4 +1,5 @@
 /* Display all music row*/
+import "./MusicList.css"
 
 import MusicCard from "./MusicCard/MusicCard";
 

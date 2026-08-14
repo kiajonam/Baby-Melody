@@ -1,0 +1,8 @@
+.musicCards{
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+}
