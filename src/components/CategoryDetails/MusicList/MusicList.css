@@ -1,8 +1,55 @@
-.musicCards{
+.musicCards {
     display: grid;
     position: relative;
     grid-template-columns: repeat(5, 1fr);
     justify-content: center;
     margin: 0 auto;
-    flex-wrap: nowrap;
+
+    min-height: 0;
+    flex: 1;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding-bottom: 20px;
+    
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+/* Firefox */
+.musicCards:hover {
+    scrollbar-color: rgba(0, 0, 0, 0.35) transparent;
+}
+
+/* Chrome / Edge */
+.musicCards::-webkit-scrollbar {
+    width: 8px;
+}
+
+.musicCards::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.musicCards::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 999px;
+}
+
+.musicCards:hover::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.musicCards::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* حذف کامل فلش‌ها */
+.musicCards::-webkit-scrollbar-button,
+.musicCards::-webkit-scrollbar-button:single-button,
+.musicCards::-webkit-scrollbar-button:vertical:start:decrement,
+.musicCards::-webkit-scrollbar-button:vertical:end:increment {
+    display: none;
+    width: 0;
+    height: 0;
 }

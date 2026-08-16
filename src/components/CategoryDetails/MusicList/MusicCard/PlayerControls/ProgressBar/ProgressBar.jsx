@@ -1,5 +1,5 @@
 import { useRef, useEffect, useCallback } from "react";
-import "./ProgressBar.css";
+// import "./ProgressBar.css";
 
 
 
@@ -14,7 +14,7 @@ export default function ProgressBar({
     {
   
 
-    const isCurrentSong = currentSong?.id === song.id;
+    const isCurrentSong = currentSong?.id === song?.id;
     const progress = isCurrentSong && duration ? (currentTime / duration) * 100 : 0; 
     const progressBarRef = useRef(null);
     const isDraggingRef = useRef(false);
@@ -33,7 +33,7 @@ export default function ProgressBar({
     
 
     function formatTime(time){
-        const minutes = Math.floor(time / 60).toString().padStart(2, "0");
+        const minutes = Math.floor(time / 60).toString().padStart(1, "0");
         const seconds = Math.floor(time % 60).toString().padStart(2, "0");
 
         return `${minutes}: ${seconds}`
@@ -83,17 +83,14 @@ export default function ProgressBar({
 
     return(
         <div className="progress-container">
-
+            <span>{formatTime(currentTime)}</span>
             <div className="progress-bar" onClick={handleClick} ref={progressBarRef} onMouseDown={handleMouseDown}> 
                 
            <div className="progress-fill" style={{width: `${progress}%`}} ></div> 
            
         </div>
-
-        <div className="time">
-            {isCurrentSong 
-             ? `${formatTime(currentTime)} / ${formatTime(duration)}` : ""}
-           </div>
+<span>{formatTime(duration)}</span>
+        
 
         </div>
         

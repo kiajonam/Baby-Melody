@@ -22,7 +22,7 @@ export default function CategoryDetails({ category, songs }) {
     handleEnded,
     handleNext,
     handlePrev,
-    togglePlayPause
+    togglePlayPause,
   } = useAudioPlayer(songs);
 
   return (
@@ -48,12 +48,16 @@ export default function CategoryDetails({ category, songs }) {
           onEnded={handleEnded}
         ></audio>
 
-        <PlayerControls  currentSong={currentSong} handlePrev={handlePrev}
-    togglePlayPause={togglePlayPause}
-    handleNext={handleNext}
-    currentSong={currentSong}
-    isPlaying={isPlaying}/>
-        
+        <PlayerControls
+          handlePrev={handlePrev}
+          togglePlayPause={togglePlayPause}
+          handleNext={handleNext}
+          currentSong={currentSong}
+          isPlaying={isPlaying}
+          handleSeek={handleSeek}
+          duration={duration}
+          currentTime={currentTime}
+        />
       </div>
     </>
   );

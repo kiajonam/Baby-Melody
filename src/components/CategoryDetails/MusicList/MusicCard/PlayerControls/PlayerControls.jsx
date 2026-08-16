@@ -3,18 +3,46 @@ import PlayerProgress from "./PlayerProgress/PlayerProgress";
 import PlayerSong from "./PlayerSong/PlayerSong";
 import "./PlayerControls.css";
 
+export default function PlayerControls({
+  currentSong,
+  handleNext,
+  handlePrev,
+  isPlaying,
+  togglePlayPause,
+  handleSeek,
+  duration,
+  currentTime,
+}) {
+  console.log("PlayerControls currentTime:", currentTime);
+  console.log("PlayerControls duration:", duration);
 
-export default function PlayerControls({currentSong, handleNext,handlePrev, isPlaying, togglePlayPause}) {
-  
   return (
+    <>
     <div className="player-controls">
-     <PlayerSong currentSong={currentSong}/>
-     <PlayerButtons handlePrev={handlePrev}
-    togglePlayPause={togglePlayPause}
-    handleNext={handleNext}
-    currentSong={currentSong}
-    isPlaying={isPlaying}/>
-     <PlayerProgress />
-    </div>
+
+      <div className="player-left">
+        <PlayerSong currentSong={currentSong} />
+      </div>
+
+      <div className="player-center">
+        <PlayerButtons
+          handlePrev={handlePrev}
+          togglePlayPause={togglePlayPause}
+          handleNext={handleNext}
+          currentSong={currentSong}
+          isPlaying={isPlaying}
+        />
+        
+          <PlayerProgress
+            handleSeek={handleSeek}
+            duration={duration}
+            currentTime={currentTime}
+          />
+        </div>
+         <div className="player-right">*Volume-shuffle-save*</div>
+    
+      </div>
+     
+    </>
   );
 }
