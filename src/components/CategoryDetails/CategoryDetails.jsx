@@ -23,6 +23,10 @@ export default function CategoryDetails({ category, songs }) {
     handleNext,
     handlePrev,
     togglePlayPause,
+    volume,
+    isMuted,
+    handleVolumeChange,
+    toggleMute,
   } = useAudioPlayer(songs);
 
   return (
@@ -57,6 +61,10 @@ export default function CategoryDetails({ category, songs }) {
           handleSeek={handleSeek}
           duration={duration}
           currentTime={currentTime}
+          volume={volume}
+          isMuted={isMuted}
+          handleVolumeChange={handleVolumeChange}
+          toggleMute={toggleMute}
         />
       </div>
     </>

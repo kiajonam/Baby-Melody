@@ -1,0 +1,44 @@
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.volume {
+    color: #555;
+    background: transparent;
+    border: none;
+    
+    cursor: pointer;
+}
+
+.volume-slider {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 120px;
+    height: 4px;
+    border-radius: 999px;
+    background: rgb(132, 132, 132);
+    cursor: pointer;
+}
+.volume-slider::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 0;
+    height: 0;
+    border: none;
+    background: transparent;
+}
+
+.volume-slider.hovered::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border: none;
+    border-radius: 50%;
+    background: rgb(37, 37, 37);
+    cursor: pointer;
+}
+

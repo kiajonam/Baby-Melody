@@ -8,7 +8,7 @@ export default function PlayerProgress({handleSeek, duration, currentTime,curren
        <div className="player-progress">
         
       <ProgressBar
-        handleSeek={handleSeek}
+        onSeek={handleSeek}
         duration={duration}
         currentTime={currentTime}
         currentSong={currentSong}

@@ -1,6 +1,5 @@
-
-button{
- position: relative;
+.explor-btn{
+position: relative;
  display: inline-block;
  color: rgba(255, 255, 255, 0.319);
  font-size: 1.5em;
@@ -18,19 +17,20 @@ user-select: none;
 cursor: pointer;
 }
 
-button:hover{
+
+.explor-btn:hover{
    color: #00eeff;
    letter-spacing: .25em;
     text-shadow: .1px .1px 5px #00eeff;
 }
 
-button span{
+.explor-btn span{
  position: absolute;
  display: block;
  background: #00eeff;   
 }
 
-button span:nth-child(1){
+.explor-btn span:nth-child(1){
     left: 0;
     top: 0;
     width: 50.5%;
@@ -41,12 +41,12 @@ button span:nth-child(1){
 }
 
 
-button:hover span:nth-child(1){
+.explor-btn:hover span:nth-child(1){
     transform: scaleX(1); 
     transform-origin: right;
 }
 
-button span:nth-child(2){
+.explor-btn span:nth-child(2){
     right: 0;
     top: 0;
     width: 50.5%;
@@ -57,12 +57,12 @@ button span:nth-child(2){
 }
 
 
-button:hover span:nth-child(2){
+.explor-btn:hover span:nth-child(2){
     transform: scaleY(1); 
     transform-origin: left;
 }
 
-button span:nth-child(3){
+.explor-btn span:nth-child(3){
     right: 0;
     top: 0;
     width: 2.5px;
@@ -74,12 +74,12 @@ button span:nth-child(3){
 }
 
 
- button:hover span:nth-child(3){
+ .explor-btn:hover span:nth-child(3){
     transform: scaleX(1); 
     transform-origin: top;
 }
  
- button span:nth-child(4){
+ .explor-btn span:nth-child(4){
     left: 0;
     bottom: 0;
     width: 50.5%;
@@ -91,13 +91,13 @@ button span:nth-child(3){
 } 
 
 
-button:hover span:nth-child(4){
+.explor-btn:hover span:nth-child(4){
     transform: scaleX(1); 
     transform-origin: left;
 }
    
 
-button span:nth-child(5){
+.explor-btn span:nth-child(5){
     right: 0;
     bottom: 0;
     width: 50.5%;
@@ -110,12 +110,12 @@ button span:nth-child(5){
 }
 
 
-button:hover span:nth-child(5){
+.explor-btn:hover span:nth-child(5){
     transform: scaleX(1); 
     transform-origin: right;
 } 
  
-button span:nth-child(6){
+.explor-btn span:nth-child(6){
     left: 0;
     top: 0;
     width: 2.5px;
@@ -127,7 +127,7 @@ button span:nth-child(6){
 } 
 
 
-button:hover span:nth-child(6){
+.explor-btn:hover span:nth-child(6){
     transform: scaleX(1); 
     transform-origin: top;
 } 

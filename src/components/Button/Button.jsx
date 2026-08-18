@@ -7,7 +7,7 @@ import "./Button.css";
 
 export default function Button({children, onClick}){
     return(
-        <button onClick={onClick}>
+        <button className="explor-btn" onClick={onClick}>
          {children}
                 <span></span>
                 <span></span>

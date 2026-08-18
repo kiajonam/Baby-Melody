@@ -5,8 +5,8 @@
     justify-content: center;
     margin: 0 auto;
 
-    min-height: 0;
-    flex: 1;
+  /* min-height: 0; */
+    /* flex: 1; */
 
     overflow-y: auto;
     overflow-x: hidden;
@@ -17,12 +17,12 @@
     scrollbar-color: transparent transparent;
 }
 
-/* Firefox */
+
 .musicCards:hover {
     scrollbar-color: rgba(0, 0, 0, 0.35) transparent;
 }
 
-/* Chrome / Edge */
+
 .musicCards::-webkit-scrollbar {
     width: 8px;
 }
@@ -44,7 +44,7 @@
     background: rgba(0, 0, 0, 0.5);
 }
 
-/* حذف کامل فلش‌ها */
+
 .musicCards::-webkit-scrollbar-button,
 .musicCards::-webkit-scrollbar-button:single-button,
 .musicCards::-webkit-scrollbar-button:vertical:start:decrement,

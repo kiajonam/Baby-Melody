@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 
 export default function useAudioPlayer(songs) {
   const [currentSong, setCurrentSong] = useState(null);
+  const [volume, setVolume] = useState(1);
+  const [isMuted, setIsMuted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -32,8 +34,6 @@ export default function useAudioPlayer(songs) {
     setCurrentTime(newTime);
   }
 
-
-
   function getNextSong() {
     if (!songs || songs.length === 0) return null;
     const currentIndex = songs.findIndex((s) => s.id === currentSong?.id);
@@ -44,26 +44,26 @@ export default function useAudioPlayer(songs) {
   function getPreviousSong() {
     if (!songs || songs.length === 0) return null;
     const currentIndex = songs.findIndex((s) => s.id === currentSong?.id);
-    const prevIndex = currentIndex > 0 ? currentIndex - 1 : (songs.length - 1);
+    const prevIndex = currentIndex > 0 ? currentIndex - 1 : songs.length - 1;
     return songs[currentIndex >= 0 ? prevIndex : 0];
   }
 
-  function handleNext(){
+  function handleNext() {
     const nextSong = getNextSong();
-    if(nextSong){
+    if (nextSong) {
       playSong(nextSong);
     }
   }
 
-  function handlePrev(){
+  function handlePrev() {
     const prevSong = getPreviousSong();
-    if(prevSong){
+    if (prevSong) {
       playSong(prevSong);
     }
   }
 
-    function handleEnded() {
-    handleNext()
+  function handleEnded() {
+    handleNext();
     // playSong(nextSong);
   }
 
@@ -72,10 +72,10 @@ export default function useAudioPlayer(songs) {
     setIsPlaying(true);
   }
 
-  function togglePlayPause(){
+  function togglePlayPause() {
     setIsPlaying((prev) => !prev);
   }
-   useEffect(() => {
+  useEffect(() => {
     if (!audioRef.current || !currentSong) return;
 
     if (isPlaying) {
@@ -84,6 +84,33 @@ export default function useAudioPlayer(songs) {
       audioRef.current.pause();
     }
   }, [currentSong, isPlaying]);
+
+
+  function handleVolumeChange(value) {
+    if( !audioRef.current) return;
+    
+    audioRef.current.volume = value;
+    setVolume(value);
+
+    if(value === 0){
+      setIsMuted(true);
+    }else {
+      setIsMuted(false);
+    }
+  }
+
+  function toggleMute(){
+    if(!audioRef.current) return;
+
+    if(isMuted) {
+      audioRef.current.volume = volume || 1;
+      setIsMuted(false);
+    } else{
+      audioRef.current.volume = 0;
+      setIsMuted(true);
+    } 
+
+  }
 
   return {
     currentSong,
@@ -105,6 +132,12 @@ export default function useAudioPlayer(songs) {
     getPreviousSong,
     handleNext,
     handlePrev,
-    togglePlayPause
+    togglePlayPause,
+    
+    volume,
+    isMuted,
+    handleVolumeChange,
+    toggleMute
+    
   };
 }

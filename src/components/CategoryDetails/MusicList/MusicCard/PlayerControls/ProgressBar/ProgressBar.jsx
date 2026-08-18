@@ -7,15 +7,15 @@ import { useRef, useEffect, useCallback } from "react";
 export default function ProgressBar({
     currentTime,
      duration,
-     currentSong, 
-     song,
+    //  currentSong, 
+    //  song,
      onSeek
     })
     {
   
 
-    const isCurrentSong = currentSong?.id === song?.id;
-    const progress = isCurrentSong && duration ? (currentTime / duration) * 100 : 0; 
+    // const isCurrentSong = currentSong?.id === song?.id;
+    const progress =  duration ? (currentTime / duration) * 100 : 0; 
     const progressBarRef = useRef(null);
     const isDraggingRef = useRef(false);
     
@@ -40,7 +40,7 @@ export default function ProgressBar({
     }
 
     function handleClick(event){
-    if(!isCurrentSong) return;
+    // if(!isCurrentSong) return;
     seek(event)
     }
 
@@ -49,7 +49,7 @@ export default function ProgressBar({
     
     function handleMouseDown(event){
 
-            if(!isCurrentSong) return;
+            // if(!isCurrentSong) return;
            event.preventDefault();
            isDraggingRef.current = true;
         
@@ -66,7 +66,7 @@ export default function ProgressBar({
         useEffect(() => {
                 function handleMouseMove(event){
                     if(!isDraggingRef.current) return;
-                    if(!isCurrentSong) return;
+                    // if(!isCurrentSong) return;
                     seek(event)
                     // onSeek(percentage)
                 }
@@ -78,7 +78,7 @@ export default function ProgressBar({
                     window.removeEventListener("mousemove", handleMouseMove);
                     window.removeEventListener("mouseup", handleMouseUp);
                 }
-            }, [isCurrentSong, seek]);
+            }, [ seek]);
          
 
     return(

@@ -1,9 +1,22 @@
 .player-buttons{
     display: flex;
+    gap: 2rem;
+     display: flex;
+    align-items: center;
+    margin-bottom: ´10px;
     
 }
 
-.player-buttons .btns{
-color: #000;
+ .btns{
+color: rgb(83, 83, 83);
 background-color: transparent;
+border: none;
+cursor: pointer;
+ 
+}
+
+
+
+ .btns:hover{
+color: rgb(0, 0, 0);
 }
