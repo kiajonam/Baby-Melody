@@ -4,14 +4,21 @@
      display: flex;
     align-items: center;
     margin-bottom: ´10px;
-    
 }
+
+.player-buttons .shuffle {
+    background-color: transparent;
+    border: none;
+    color: rgb(83, 83, 83);
+}
+
 
  .btns{
 color: rgb(83, 83, 83);
 background-color: transparent;
 border: none;
-cursor: pointer;
+    cursor: pointer;
+
  
 }
 

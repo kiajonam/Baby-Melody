@@ -3,7 +3,7 @@ import "./MusicList.css"
 
 import MusicCard from "./MusicCard/MusicCard";
 
-export default function MusicList({songs, onPlay,isPlaying,currentSong,currentTime, duration, onSeek }){
+export default function MusicList({songs, onPlay,currentSong, isPlaying,currentTime, duration, onSeek }){
     return(
         <div className="musicCards">
             {songs.map(song => (

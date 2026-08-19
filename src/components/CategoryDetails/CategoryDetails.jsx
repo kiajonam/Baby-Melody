@@ -42,6 +42,7 @@ export default function CategoryDetails({ category, songs }) {
           currentTime={currentTime}
           onSeek={handleSeek}
           isPlaying={isPlaying}
+          
         />
 
         <audio

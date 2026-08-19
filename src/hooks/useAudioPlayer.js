@@ -7,6 +7,7 @@ export default function useAudioPlayer(songs) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [isShuffle, setIOsShuffle] = useState(false);
   const audioRef = useRef(null);
 
   function handleSongClick(song) {
@@ -75,6 +76,7 @@ export default function useAudioPlayer(songs) {
   function togglePlayPause() {
     setIsPlaying((prev) => !prev);
   }
+
   useEffect(() => {
     if (!audioRef.current || !currentSong) return;
 
@@ -99,6 +101,7 @@ export default function useAudioPlayer(songs) {
     }
   }
 
+
   function toggleMute(){
     if(!audioRef.current) return;
 
@@ -110,6 +113,10 @@ export default function useAudioPlayer(songs) {
       setIsMuted(true);
     } 
 
+  }
+
+  function toggleShuffle(){
+    setIOsShuffle((prev) => !prev)
   }
 
   return {
@@ -137,7 +144,10 @@ export default function useAudioPlayer(songs) {
     volume,
     isMuted,
     handleVolumeChange,
-    toggleMute
+    toggleMute,
+
+    isShuffle,
+    toggleShuffle
     
   };
 }

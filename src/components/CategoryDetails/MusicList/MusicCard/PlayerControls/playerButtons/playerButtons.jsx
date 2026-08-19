@@ -1,4 +1,4 @@
-import { SkipBack, Play, Pause, SkipForward } from "lucide-react";
+import { SkipBack, Play, Pause, SkipForward,Shuffle } from "lucide-react";
 import "./playerButtons.css";
 
 export default function PlayerButtons({
@@ -12,6 +12,9 @@ export default function PlayerButtons({
 
   return (
     <div className="player-buttons">
+      <button className="shuffle btns">
+        <Shuffle />
+      </button>
       <button className="prev btns"  onClick={handlePrev} disabled={!hasSong}>
         <SkipBack size={18} fill="currentColor"/>
       </button>

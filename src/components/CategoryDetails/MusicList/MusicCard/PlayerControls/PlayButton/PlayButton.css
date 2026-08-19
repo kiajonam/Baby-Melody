@@ -27,11 +27,19 @@
     height: 15px;
     fill: #000000;
     opacity: 0;
-    
+    cursor: pointer;
 }
 
 .music-row:hover .music-details .play-overlay svg{
     opacity: 1;
+}
+.play-overlay.is-active{
+   background-color:#00eeff;
+}
+.play-overlay.is-active svg {
+    opacity: 1;
+    background-color:#00eeff;
+    
 }
 .play-overlay{
     position: absolute;
