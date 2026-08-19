@@ -7,7 +7,7 @@ export default function useAudioPlayer(songs) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [isShuffle, setIOsShuffle] = useState(false);
+  const [isShuffle, setIsShuffle] = useState(false);
   const audioRef = useRef(null);
 
   function handleSongClick(song) {
@@ -37,6 +37,19 @@ export default function useAudioPlayer(songs) {
 
   function getNextSong() {
     if (!songs || songs.length === 0) return null;
+
+    if (isShuffle) {
+      const availableSong = songs.filter((song) => song.id !== currentSong?.id);
+
+      if(availableSong.length === 0){
+        return currentSong;
+      }
+
+      const randomIndex = Math.floor(Math.random() * availableSong.length);
+  
+      return availableSong[randomIndex];
+    }
+
     const currentIndex = songs.findIndex((s) => s.id === currentSong?.id);
     const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % songs.length : 0;
     return songs[nextIndex];
@@ -77,6 +90,11 @@ export default function useAudioPlayer(songs) {
     setIsPlaying((prev) => !prev);
   }
 
+  function toggleShuffle() {
+    if(!currentSong)return;
+    setIsShuffle((prev) => !prev);
+  }
+
   useEffect(() => {
     if (!audioRef.current || !currentSong) return;
 
@@ -87,37 +105,32 @@ export default function useAudioPlayer(songs) {
     }
   }, [currentSong, isPlaying]);
 
-
   function handleVolumeChange(value) {
-    if( !audioRef.current) return;
-    
+    if (!audioRef.current) return;
+
     audioRef.current.volume = value;
     setVolume(value);
 
-    if(value === 0){
+    if (value === 0) {
       setIsMuted(true);
-    }else {
+    } else {
       setIsMuted(false);
     }
   }
 
+  function toggleMute() {
+    if (!audioRef.current) return;
 
-  function toggleMute(){
-    if(!audioRef.current) return;
-
-    if(isMuted) {
+    if (isMuted) {
       audioRef.current.volume = volume || 1;
       setIsMuted(false);
-    } else{
+    } else {
       audioRef.current.volume = 0;
       setIsMuted(true);
-    } 
-
+    }
   }
 
-  function toggleShuffle(){
-    setIOsShuffle((prev) => !prev)
-  }
+
 
   return {
     currentSong,
@@ -140,14 +153,13 @@ export default function useAudioPlayer(songs) {
     handleNext,
     handlePrev,
     togglePlayPause,
-    
+
     volume,
     isMuted,
     handleVolumeChange,
     toggleMute,
 
     isShuffle,
-    toggleShuffle
-    
+    toggleShuffle,
   };
 }

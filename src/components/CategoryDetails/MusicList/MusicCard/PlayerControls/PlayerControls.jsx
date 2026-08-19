@@ -4,7 +4,7 @@ import PlayerSong from "./PlayerSong/PlayerSong";
 import "./PlayerControls.css";
 import "./PlayerRight/PlayerRight";
 import PalyerRight from "./PlayerRight/PlayerRight";
-import VolumeControl from "./PlayerRight/VolumeControl/VolumeControl";
+
 
 export default function PlayerControls({
   currentSong,
@@ -19,9 +19,10 @@ export default function PlayerControls({
   isMuted,
   handleVolumeChange,
   toggleMute,
+  isShuffle,
+toggleShuffle
 }) {
-  console.log("PlayerControls currentTime:", currentTime);
-  console.log("PlayerControls duration:", duration);
+
 
   return (
     <>
@@ -37,7 +38,9 @@ export default function PlayerControls({
             handleNext={handleNext}
             currentSong={currentSong}
             isPlaying={isPlaying}
-          />
+          isShuffle={isShuffle}
+          toggleShuffle={toggleShuffle}
+        />
 
           <PlayerProgress
             handleSeek={handleSeek}
@@ -51,7 +54,7 @@ export default function PlayerControls({
           handleVolumeChange={handleVolumeChange}
           toggleMute={toggleMute}
         />
-        {/* <VolumeControl /> */}
+        
       </div>
     </>
   );
