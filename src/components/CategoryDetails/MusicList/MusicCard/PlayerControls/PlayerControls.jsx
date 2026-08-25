@@ -5,7 +5,6 @@ import "./PlayerControls.css";
 import "./PlayerRight/PlayerRight";
 import PalyerRight from "./PlayerRight/PlayerRight";
 
-
 export default function PlayerControls({
   currentSong,
   handleNext,
@@ -20,10 +19,10 @@ export default function PlayerControls({
   handleVolumeChange,
   toggleMute,
   isShuffle,
-toggleShuffle
+  toggleShuffle,
+  repeatMode,
+  toggleRepeat,
 }) {
-
-
   return (
     <>
       <div className="player-controls">
@@ -38,9 +37,11 @@ toggleShuffle
             handleNext={handleNext}
             currentSong={currentSong}
             isPlaying={isPlaying}
-          isShuffle={isShuffle}
-          toggleShuffle={toggleShuffle}
-        />
+            isShuffle={isShuffle}
+            toggleShuffle={toggleShuffle}
+            repeatMode={repeatMode}
+            toggleRepeat={toggleRepeat}
+          />
 
           <PlayerProgress
             handleSeek={handleSeek}
@@ -54,7 +55,6 @@ toggleShuffle
           handleVolumeChange={handleVolumeChange}
           toggleMute={toggleMute}
         />
-        
       </div>
     </>
   );

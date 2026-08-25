@@ -29,6 +29,8 @@ export default function CategoryDetails({ category, songs }) {
     toggleMute,
     isShuffle,
     toggleShuffle,
+    repeatMode,
+    toggleRepeat,
   } = useAudioPlayer(songs);
 
   return (
@@ -70,6 +72,9 @@ export default function CategoryDetails({ category, songs }) {
           toggleMute={toggleMute}
           isShuffle={isShuffle}
           toggleShuffle={toggleShuffle}
+          repeatMode={repeatMode}
+          toggleRepeat={toggleRepeat}
+          
         />
       </div>
     </>

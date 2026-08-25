@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from "react";
 
 export default function useAudioPlayer(songs) {
@@ -11,6 +10,7 @@ export default function useAudioPlayer(songs) {
   const [isShuffle, setIsShuffle] = useState(false);
   const [shuffleHistory, setShuffleHistory] = useState([]);
   const [shuffleIndex, setShuffleIndex] = useState(-1);
+  const [repeatMode, setRepeatMode] = useState("off");
 
   const audioRef = useRef(null);
 
@@ -48,39 +48,50 @@ export default function useAudioPlayer(songs) {
       if (availableSong.length === 0) {
         return currentSong;
       }
-
       const randomIndex = Math.floor(Math.random() * availableSong.length);
 
       return availableSong[randomIndex];
     }
 
     const currentIndex = songs.findIndex((s) => s.id === currentSong?.id);
-    const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % songs.length : 0;
+
+    const nextIndex = currentIndex >= 0 ? currentIndex + 1 : 0;
+
+    if (nextIndex >= songs.length) {
+      return repeatMode === "all" ? songs[0] : null;
+    }
+
     return songs[nextIndex];
   }
+  
 
   function handleNext() {
     const nextSong = getNextSong();
-    if (nextSong) {
+
+    if (!nextSong) {
+      setIsPlaying(false);
+      return;
+    }
+
       if (isShuffle) {
         addToShuffleHistory(nextSong);
         setShuffleIndex((prev) => prev + 1);
       }
+
       playSong(nextSong);
     }
-  }
+  
 
   function handlePrev() {
     const prevSong = getPreviousSong();
     if (prevSong) {
-      if (isShuffle){
+      if (isShuffle) {
         setShuffleIndex((prev) => prev - 1);
       }
       playSong(prevSong);
     }
   }
 
-  
   function getPreviousSong() {
     if (!songs || songs.length === 0) return null;
 
@@ -96,10 +107,14 @@ export default function useAudioPlayer(songs) {
     return songs[currentIndex >= 0 ? prevIndex : 0];
   }
 
-
   function handleEnded() {
+    if (repeatMode === "one") {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
+      return;
+    }
+
     handleNext();
-    // playSong(nextSong);
   }
 
   function playSong(song) {
@@ -133,75 +148,89 @@ export default function useAudioPlayer(songs) {
     setShuffleHistory((prev) => [...prev, song]);
   }
 
+  function toggleRepeat() {
+    if (!currentSong) return;
+
+    setRepeatMode((prev) => {
+      if (prev === "off") {
+        return "all";
+      }
+
+      if (prev === "all") {
+        return "one";
+      }
+      return "off";
+    });
+  }
+
+
   useEffect(() => {
-    console.log("Shuffle History:", shuffleHistory);
-    console.log("Shuffle Index:", shuffleIndex);
-  }, [shuffleHistory, shuffleIndex]);
+    if (!audioRef.current || !currentSong) return;
 
-useEffect(() => {
-  if (!audioRef.current || !currentSong) return;
+    if (isPlaying) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  }, [currentSong, isPlaying]);
 
-  if (isPlaying) {
-    audioRef.current.play();
-  } else {
-    audioRef.current.pause();
+  function handleVolumeChange(value) {
+    if (!audioRef.current) return;
+
+    audioRef.current.volume = value;
+    setVolume(value);
+
+    if (value === 0) {
+      setIsMuted(true);
+    } else {
+      setIsMuted(false);
+    }
   }
-}, [currentSong, isPlaying]);
 
-function handleVolumeChange(value) {
-  if (!audioRef.current) return;
+  function toggleMute() {
+    if (!audioRef.current) return;
 
-  audioRef.current.volume = value;
-  setVolume(value);
-
-  if (value === 0) {
-    setIsMuted(true);
-  } else {
-    setIsMuted(false);
+    if (isMuted) {
+      audioRef.current.volume = volume || 1;
+      setIsMuted(false);
+    } else {
+      audioRef.current.volume = 0;
+      setIsMuted(true);
+    }
   }
-}
 
-function toggleMute() {
-  if (!audioRef.current) return;
+  return {
+    currentSong,
+    setCurrentSong,
+    isPlaying,
+    setIsPlaying,
+    currentTime,
+    setCurrentTime,
+    duration,
+    setDuration,
+    audioRef,
+    handleSongClick,
+    handleTimeUpdate,
+    handleLoadedMetadata,
+    handleSeek,
+    handleEnded,
+    playSong,
+    getNextSong,
+    getPreviousSong,
+    handleNext,
+    handlePrev,
+    togglePlayPause,
 
-  if (isMuted) {
-    audioRef.current.volume = volume || 1;
-    setIsMuted(false);
-  } else {
-    audioRef.current.volume = 0;
-    setIsMuted(true);
-  }
-}
+    volume,
+    isMuted,
+    handleVolumeChange,
+    toggleMute,
 
-return {
-  currentSong,
-  setCurrentSong,
-  isPlaying,
-  setIsPlaying,
-  currentTime,
-  setCurrentTime,
-  duration,
-  setDuration,
-  audioRef,
-  handleSongClick,
-  handleTimeUpdate,
-  handleLoadedMetadata,
-  handleSeek,
-  handleEnded,
-  playSong,
-  getNextSong,
-  getPreviousSong,
-  handleNext,
-  handlePrev,
-  togglePlayPause,
+    isShuffle,
+    toggleShuffle,
+    shuffleHistory,
 
-  volume,
-  isMuted,
-  handleVolumeChange,
-  toggleMute,
-
-  isShuffle,
-  toggleShuffle,
-  shuffleHistory,
-};
+    repeatMode,
+    toggleRepeat,
+  };
 }

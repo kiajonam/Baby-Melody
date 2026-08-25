@@ -1,4 +1,13 @@
-import { SkipBack, Play, Pause, SkipForward, Shuffle } from "lucide-react";
+import {
+  SkipBack,
+  Play,
+  Pause,
+  SkipForward,
+  Shuffle,
+  Repeat,
+  Repeat1,
+} from "lucide-react";
+// import { BsRepeat } from "react-icons/bs";
 import "./playerButtons.css";
 
 export default function PlayerButtons({
@@ -9,6 +18,8 @@ export default function PlayerButtons({
   togglePlayPause,
   isShuffle,
   toggleShuffle,
+  repeatMode,
+  toggleRepeat,
 }) {
   const hasSong = currentSong !== null;
 
@@ -36,6 +47,17 @@ export default function PlayerButtons({
       </button>
       <button className="next btns" onClick={handleNext} disabled={!hasSong}>
         <SkipForward size={18} fill="currentColor" />
+      </button>
+      <button
+        className={`repeat btns ${repeatMode !== "off" ? "active" : ""}`}
+        onClick={toggleRepeat}
+      >
+        {repeatMode === "one" ? (
+          <Repeat1 size={18} fill="currentColor"/>
+        ) : (
+          <Repeat size={18} fill="currentColor"/>
+        )}
+        
       </button>
     </div>
   );
