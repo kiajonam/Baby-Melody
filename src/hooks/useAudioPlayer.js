@@ -13,6 +13,56 @@ export default function useAudioPlayer(songs) {
   const [repeatMode, setRepeatMode] = useState("off");
 
   const audioRef = useRef(null);
+  const audioContextRef = useRef(null);
+  const sourceNodeRef = useRef(null);
+  const gainNodeRef = useRef(null);
+  const lastNonZeroVolumeRef = useRef(1);
+
+  function ensureAudioGraph() {
+    if (!audioRef.current) return false;
+
+    if (gainNodeRef.current) return true;
+
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+
+    if (!AudioContextClass) return false;
+
+    try {
+      const audioContext = new AudioContextClass();
+      const sourceNode = audioContext.createMediaElementSource(
+        audioRef.current,
+      );
+      const gainNode = audioContext.createGain();
+
+      audioRef.current.volume = 1;
+      sourceNode.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+
+      audioContextRef.current = audioContext;
+      sourceNodeRef.current = sourceNode;
+      gainNodeRef.current = gainNode;
+      gainNode.gain.value = isMuted ? 0 : volume;
+
+      return true;
+    } catch (error) {
+      console.error("Unable to initialize the audio volume control.", error);
+      return false;
+    }
+  }
+
+  function resumeAudioContext() {
+    if (audioContextRef.current?.state === "suspended") {
+      audioContextRef.current.resume().catch(() => {});
+    }
+  }
+
+  useEffect(() => {
+    return () => {
+      sourceNodeRef.current?.disconnect();
+      gainNodeRef.current?.disconnect();
+      audioContextRef.current?.close();
+    };
+  }, []);
 
   function handleSongClick(song) {
     if (currentSong?.id === song.id && isPlaying) {
@@ -63,7 +113,6 @@ export default function useAudioPlayer(songs) {
 
     return songs[nextIndex];
   }
-  
 
   function handleNext() {
     const nextSong = getNextSong();
@@ -73,14 +122,13 @@ export default function useAudioPlayer(songs) {
       return;
     }
 
-      if (isShuffle) {
-        addToShuffleHistory(nextSong);
-        setShuffleIndex((prev) => prev + 1);
-      }
-
-      playSong(nextSong);
+    if (isShuffle) {
+      addToShuffleHistory(nextSong);
+      setShuffleIndex((prev) => prev + 1);
     }
-  
+
+    playSong(nextSong);
+  }
 
   function handlePrev() {
     const prevSong = getPreviousSong();
@@ -118,6 +166,8 @@ export default function useAudioPlayer(songs) {
   }
 
   function playSong(song) {
+    ensureAudioGraph();
+    resumeAudioContext();
     setCurrentSong(song);
     setIsPlaying(true);
 
@@ -126,6 +176,8 @@ export default function useAudioPlayer(songs) {
   }
 
   function togglePlayPause() {
+    ensureAudioGraph();
+    resumeAudioContext();
     setIsPlaying((prev) => !prev);
   }
 
@@ -163,7 +215,6 @@ export default function useAudioPlayer(songs) {
     });
   }
 
-
   useEffect(() => {
     if (!audioRef.current || !currentSong) return;
 
@@ -177,10 +228,23 @@ export default function useAudioPlayer(songs) {
   function handleVolumeChange(value) {
     if (!audioRef.current) return;
 
-    audioRef.current.volume = value;
-    setVolume(value);
+    const nextVolume = Math.min(Math.max(value, 0), 1);
+    const hasAudioGraph = ensureAudioGraph();
+    resumeAudioContext();
 
-    if (value === 0) {
+    if (hasAudioGraph && gainNodeRef.current) {
+      gainNodeRef.current.gain.value = nextVolume;
+    } else {
+      audioRef.current.volume = nextVolume;
+    }
+
+    if (nextVolume > 0) {
+      lastNonZeroVolumeRef.current = nextVolume;
+    }
+
+    setVolume(nextVolume);
+
+    if (nextVolume === 0) {
       setIsMuted(true);
     } else {
       setIsMuted(false);
@@ -190,11 +254,25 @@ export default function useAudioPlayer(songs) {
   function toggleMute() {
     if (!audioRef.current) return;
 
+    const hasAudioGraph = ensureAudioGraph();
+    resumeAudioContext();
+
     if (isMuted) {
-      audioRef.current.volume = volume || 1;
+      const restoredVolume = volume > 0 ? volume : lastNonZeroVolumeRef.current;
+
+      if (hasAudioGraph && gainNodeRef.current) {
+        gainNodeRef.current.gain.value = restoredVolume;
+      } else {
+        audioRef.current.volume = restoredVolume;
+      }
+      setVolume(restoredVolume);
       setIsMuted(false);
     } else {
-      audioRef.current.volume = 0;
+      if (hasAudioGraph && gainNodeRef.current) {
+        gainNodeRef.current.gain.value = 0;
+      } else {
+        audioRef.current.volume = 0;
+      }
       setIsMuted(true);
     }
   }
