@@ -1,7 +1,6 @@
 .player-buttons{
     display: flex;
     gap: 2rem;
-     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
@@ -29,5 +28,12 @@ cursor: pointer;
 
  .btns:hover{
 color: rgb(0, 0, 0);
+}
+
+@media (max-width: 768px) {
+    .player-buttons {
+        gap: clamp(0.75rem, 5vw, 1.5rem);
+        margin-bottom: 4px;
+    }
 }
 

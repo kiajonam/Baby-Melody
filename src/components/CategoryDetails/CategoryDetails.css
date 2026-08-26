@@ -7,3 +7,9 @@
    height: calc(100vh - 90px);
 }
 
+@media (max-width: 768px) {
+   .category-details-page {
+      padding-bottom: 190px;
+   }
+}
+

@@ -17,6 +17,18 @@
     scrollbar-color: transparent transparent;
 }
 
+@media (max-width: 880px) {
+    .musicCards {
+        grid-template-columns: repeat(4, minmax(130px, 1fr));
+    }
+}
+
+@media (max-width: 610px) {
+    .musicCards {
+        grid-template-columns: repeat(2, minmax(130px, 1fr));
+    }
+}
+
 
 .musicCards:hover {
     scrollbar-color: rgba(0, 0, 0, 0.35) transparent;

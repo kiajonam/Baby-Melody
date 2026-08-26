@@ -1,10 +1,11 @@
 .progress-container{
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     flex: 1;
 
     min-height: 0;
+    min-width: 0;
 }
 
 .progress-bar{
@@ -41,5 +42,28 @@
     align-items: center;
     display: flex;
     gap: 10px;
-    width: 500px;
+    width: min(500px, 100%);
+    max-width: 100%;
+    min-width: 0;
+}
+
+.progress-container > span {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .player-progress {
+        width: 100%;
+    }
+
+    .progress-container {
+        gap: 6px;
+        width: 100%;
+    }
+
+    .progress-container > span {
+        font-size: 0.7rem;
+    }
 }

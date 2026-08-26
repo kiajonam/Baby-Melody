@@ -8,7 +8,7 @@ export default function PalyerRight({
   toggleMute,
 }) {
   return (
-    <div className="palyer-right">
+    <div className="player-right">
       <VolumeControl
         volume={volume}
         isMuted={isMuted}

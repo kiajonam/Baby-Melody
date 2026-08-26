@@ -3,7 +3,7 @@ import PlayerProgress from "./PlayerProgress/PlayerProgress";
 import PlayerSong from "./PlayerSong/PlayerSong";
 import "./PlayerControls.css";
 import "./PlayerRight/PlayerRight";
-import PalyerRight from "./PlayerRight/PlayerRight";
+import PlayerRight from "./PlayerRight/PlayerRight";
 
 export default function PlayerControls({
   currentSong,
@@ -49,7 +49,7 @@ export default function PlayerControls({
             currentTime={currentTime}
           />
         </div>
-        <PalyerRight
+        <PlayerRight
           volume={volume}
           isMuted={isMuted}
           handleVolumeChange={handleVolumeChange}
