@@ -11,6 +11,31 @@
     --cream: #fffaf7;
     --line: rgba(85, 125, 154, 0.16);
     --shadow-soft: 0 18px 45px rgba(50, 82, 107, 0.1);
+    --page-gradient: linear-gradient(135deg, var(--blue-wash) 0%, var(--cream) 55%, #f8eef0 100%);
+    --hero-gradient: linear-gradient(120deg, #dcecf2 0%, #f8eef0 72%, #fffaf7 100%);
+    --header-gradient: linear-gradient(120deg, #dcecf2 0%, #f7e8ec 100%);
+    --surface: rgba(255, 250, 247, 0.85);
+    --surface-strong: rgba(255, 250, 247, 0.94);
+    --accent-shadow: rgba(85, 125, 154, 0.24);
+}
+
+:root[data-theme="dark"] {
+    --ink: #e4edf2;
+    --ink-muted: #a8bac7;
+    --blue-deep: #8eb8d0;
+    --blue-soft: #29495d;
+    --blue-wash: #172b3a;
+    --pink-soft: #573d4b;
+    --pink-warm: #c58fa4;
+    --cream: #223746;
+    --line: rgba(174, 211, 226, 0.18);
+    --shadow-soft: 0 18px 45px rgba(3, 14, 22, 0.35);
+    --page-gradient: linear-gradient(135deg, #172b3a 0%, #203b4c 55%, #342d3d 100%);
+    --hero-gradient: linear-gradient(120deg, #1c3a4c 0%, #3f3445 72%, #263746 100%);
+    --header-gradient: linear-gradient(120deg, #1c3a4c 0%, #4a3545 100%);
+    --surface: rgba(34, 55, 70, 0.9);
+    --surface-strong: rgba(31, 50, 64, 0.96);
+    --accent-shadow: rgba(142, 184, 208, 0.2);
 }
 
 * {
@@ -23,7 +48,7 @@ html { background: var(--blue-wash); }
 
 body {
     color: var(--ink);
-    background: radial-gradient(circle at 12% 8%, rgba(242, 223, 228, 0.7), transparent 28rem), linear-gradient(135deg, var(--blue-wash) 0%, var(--cream) 55%, #f8eef0 100%);
+    background: radial-gradient(circle at 12% 8%, rgba(242, 223, 228, 0.7), transparent 28rem), var(--page-gradient);
     font-family: "Nunito Sans", sans-serif;
     user-select: none;
     -webkit-user-drag: none;
@@ -56,7 +81,7 @@ a { color: inherit; }
         justify-content: center;
         gap: 12px;
         padding: 100px 28px 48px;
-        background: rgba(10, 10, 10);
+        background: var(--surface-strong);
         -webkit-backdrop-filter:blur(18px);
         backdrop-filter: blur(18px);
         z-index: 1001;
@@ -89,8 +114,8 @@ a { color: inherit; }
         text-align: center;
         padding: 10px 22px;
         font-size: 1.5rem;
-        border: 1px solid rgba(255,255,255,0.1);
-        background: rgba(255,255,255,0.03)
+        border: 1px solid var(--line);
+        background: var(--surface)
     }
 
     .nav-btn{
@@ -98,7 +123,7 @@ a { color: inherit; }
         margin-left: 0;
         margin-top: 8px;
         text-align: center;
-        background: #fff;
+        background: var(--cream);
     }
 
 }

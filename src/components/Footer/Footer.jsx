@@ -4,20 +4,32 @@
  */
 
 import "./Footer.css";
+import { useLanguage } from "../../i18n/LanguageContext";
 
-function Footer(){
-return (
-<footer className="footer">
-    <ul>
-    <li><a href="#">About us</a></li>
-    <li><a href="#">Donate</a></li>
-    <li><a href="#">Impressum</a></li>
-    <li><a href="#">Email</a></li>
-    <li><a href="#">Social Media</a></li>
-    </ul>
-</footer>
+function Footer() {
+  const { t } = useLanguage();
 
-)
+  return (
+    <footer className="footer">
+      <ul>
+        <li>
+          <a href="#">{t("footer.about")}</a>
+        </li>
+        <li>
+          <a href="#">{t("footer.donate")}</a>
+        </li>
+        <li>
+          <a href="#">{t("footer.impressum")}</a>
+        </li>
+        <li>
+          <a href="#">{t("footer.email")}</a>
+        </li>
+        <li>
+          <a href="#">{t("footer.socialMedia")}</a>
+        </li>
+      </ul>
+    </footer>
+  );
 }
 
 export default Footer;

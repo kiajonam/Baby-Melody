@@ -3,19 +3,18 @@
  * Introduces the Baby Melody application.
  */
 import "./Hero.css";
+import { useLanguage } from "../../i18n/LanguageContext";
 
+function Hero() {
+  const { t } = useLanguage();
 
-function Hero(){
-    return (
-        <section className="hero">
-            <h1>Calm Music For Little Hearts</h1>
+  return (
+    <section className="hero">
+      <h1>{t("hero.title")}</h1>
 
-            <p>Discover relaxing music, lullabies and sounds
-                for your baby.
-            </p>
-
-        </section>
-    );
+      <p>{t("hero.description")}</p>
+    </section>
+  );
 }
 
 export default Hero;

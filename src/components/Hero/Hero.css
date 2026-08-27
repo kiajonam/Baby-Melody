@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: flex-start;
     overflow: hidden;
-    background: linear-gradient(120deg, #dcecf2 0%, #f8eef0 72%, #fffaf7 100%);
+    background: var(--hero-gradient);
     -webkit-user-select:none;
     user-select: none;
     flex-grow: 1;
@@ -27,7 +27,7 @@
     height: 280px;
     top: 90px;
     right: 12%;
-    background: rgba(255, 250, 247, 0.7);
+    background: var(--surface);
     box-shadow: 0 0 0 28px rgba(220, 235, 241, 0.48), 0 0 70px rgba(220, 174, 188, 0.3);
 }
 

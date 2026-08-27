@@ -1,7 +1,7 @@
 
 .category-card{
     overflow: hidden;
-    background: rgba(255, 250, 247, 0.85);
+    background: var(--surface);
     border: 1px solid var(--line);
     border-radius: 18px;
     text-align: left;

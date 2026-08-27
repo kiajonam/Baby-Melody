@@ -63,7 +63,7 @@
         height: 15px;
         border: none;
         border-radius: 50%;
-        background: rgb(37, 37, 37);
+        background: var(--blue-deep);
         cursor: pointer;
     }
 
@@ -72,7 +72,7 @@
         height: 15px;
         border: none;
         border-radius: 50%;
-        background: rgb(37, 37, 37);
+        background: var(--blue-deep);
         cursor: pointer;
     }
 }

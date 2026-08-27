@@ -3,7 +3,7 @@
     width: 100%;
     min-height: 280px;
     padding: 112px 24px 36px;
-    background: linear-gradient(120deg, #dcecf2 0%, #f7e8ec 100%);
+    background: var(--header-gradient);
     overflow: hidden;
 }
 
@@ -64,7 +64,7 @@
     width: 92px;
     height: 92px;
     border-radius: 50%;
-    background: var(--cream);
+    background: var(--surface-strong);
     box-shadow: -12px 5px 0 var(--pink-soft);
 }
 
