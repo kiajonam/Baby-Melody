@@ -1,15 +1,38 @@
-body{
-font-family:Poppins;
-background:#f7efef;
-user-select: none;
--webkit-user-drag: none;
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --ink: #263b52;
+    --ink-muted: #718298;
+    --blue-deep: #557d9a;
+    --blue-soft: #dcebf1;
+    --blue-wash: #f2f8f9;
+    --pink-soft: #f2dfe4;
+    --pink-warm: #dcaebc;
+    --cream: #fffaf7;
+    --line: rgba(85, 125, 154, 0.16);
+    --shadow-soft: 0 18px 45px rgba(50, 82, 107, 0.1);
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+html { background: var(--blue-wash); }
+
+body {
+    color: var(--ink);
+    background: radial-gradient(circle at 12% 8%, rgba(242, 223, 228, 0.7), transparent 28rem), linear-gradient(135deg, var(--blue-wash) 0%, var(--cream) 55%, #f8eef0 100%);
+    font-family: "Nunito Sans", sans-serif;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+button,
+input { font: inherit; }
+
+a { color: inherit; }
 
 @media (max-width: 880px){
 .hero{
@@ -99,4 +122,13 @@ user-select: none;
         margin-right: 50px;
     }
     
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
 }

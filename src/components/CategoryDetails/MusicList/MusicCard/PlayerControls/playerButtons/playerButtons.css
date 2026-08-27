@@ -1,22 +1,22 @@
 .player-buttons{
     display: flex;
-    gap: 2rem;
+    gap: 1.25rem;
     align-items: center;
     margin-bottom: 10px;
 }
 
 .player-buttons .btns.active {
-    background-color: rgb(110, 255, 156);
-    padding: 5px;
-    border-radius:5px ;
-    color: rgb(0, 0, 0);
+    background-color: var(--pink-soft);
+    padding: 7px;
+    border-radius: 50%;
+    color: var(--ink);
     
 }
 
 
 
  .btns{
-color: rgb(83, 83, 83);
+color: var(--ink-muted);
 background-color: transparent;
 border: none;
 cursor: pointer;
@@ -27,12 +27,30 @@ cursor: pointer;
 
 
  .btns:hover{
-color: rgb(0, 0, 0);
+color: var(--ink);
+transform: translateY(-1px);
+}
+
+.toggle-btn {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--cream);
+    background: var(--blue-deep);
+    box-shadow: 0 8px 16px rgba(85, 125, 154, 0.24);
+}
+
+.toggle-btn:hover {
+    color: var(--cream);
+    background: var(--ink);
 }
 
 @media (max-width: 768px) {
     .player-buttons {
-        gap: clamp(0.75rem, 5vw, 1.5rem);
+        justify-content: center;
+        gap: clamp(0.65rem, 5vw, 1.25rem);
         margin-bottom: 4px;
     }
 }

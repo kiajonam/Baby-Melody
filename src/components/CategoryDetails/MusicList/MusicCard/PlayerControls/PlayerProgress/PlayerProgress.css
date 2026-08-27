@@ -11,7 +11,7 @@
 .progress-bar{
     flex:1;
     height:5px;
-    background:#ddd;
+    background: var(--blue-soft);
     border-radius:999px;
     overflow:hidden;
     
@@ -22,7 +22,7 @@
 .progress-fill{
     height:5px;
 
-    background:black;
+    background: var(--pink-warm);
     border-radius: 3px;
     transition:.2s;
 }
@@ -30,7 +30,7 @@
 .time{
    
     width:90px;
-    color: #000000;
+    color: var(--ink-muted);
     text-align:center;
 
     white-space:nowrap;

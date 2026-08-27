@@ -1,8 +1,8 @@
 
 .music-details{
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 112px;
+    height: 112px;
 }
 
 .music-details img{
@@ -11,7 +11,7 @@
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 5px;
+    border-radius: 14px;
     object-fit: cover;
     opacity: 0.9;
     width: 100%;
@@ -25,7 +25,7 @@
 .play-overlay svg{
     width: 15px;
     height: 15px;
-    fill: #000000;
+    fill: var(--ink);
     opacity: 0;
     cursor: pointer;
 }
@@ -34,11 +34,11 @@
     opacity: 1;
 }
 .play-overlay.is-active{
-   background-color:#00eeff;
+    background-color: var(--pink-soft);
 }
 .play-overlay.is-active svg {
     opacity: 1;
-    background-color:#00eeff;
+    background-color: var(--pink-soft);
     
 }
 .play-overlay{
@@ -55,7 +55,7 @@
 }
 
 .music-row:hover .play-overlay{
-background-color:#00eeff;
+background-color: var(--blue-soft);
 }
 
 .music-row:hover{

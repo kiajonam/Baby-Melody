@@ -1,14 +1,79 @@
 .hero{
-    background-image: url("./hero-background.jpg");
-    /* width: 100%; */
-    background-size:cover; 
-    background-repeat: no-repeat;
-    padding: 5rem 0;
+    position: relative;
+    isolation: isolate;
+    min-height: 430px;
+    padding: 150px max(24px, calc((100% - 1120px) / 2)) 88px;
     display: flex;
     flex-direction: column;
-    min-height:100vh;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    background: linear-gradient(120deg, #dcecf2 0%, #f8eef0 72%, #fffaf7 100%);
     -webkit-user-select:none;
     user-select: none;
     flex-grow: 1;
+}
+
+.hero::before,
+.hero::after {
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    content: "";
+}
+
+.hero::before {
+    width: 280px;
+    height: 280px;
+    top: 90px;
+    right: 12%;
+    background: rgba(255, 250, 247, 0.7);
+    box-shadow: 0 0 0 28px rgba(220, 235, 241, 0.48), 0 0 70px rgba(220, 174, 188, 0.3);
+}
+
+.hero::after {
+    width: 14px;
+    height: 14px;
+    top: 150px;
+    right: 26%;
+    background: var(--pink-warm);
+    box-shadow: -80px 150px 0 3px var(--blue-deep), 100px 190px 0 1px var(--pink-warm);
+    animation: drift 9s ease-in-out infinite alternate;
+}
+
+.hero h1 {
+    max-width: 650px;
+    color: var(--ink);
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 400;
+    line-height: 0.98;
+}
+
+.hero p {
+    max-width: 430px;
+    margin-top: 22px;
+    color: var(--ink-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+@keyframes drift {
+    to { transform: translate(-18px, 14px); }
+}
+
+@media (max-width: 610px) {
+    .hero {
+        min-height: 390px;
+        padding: 130px 24px 62px;
+    }
+
+    .hero h1 { font-size: clamp(2.8rem, 14vw, 4rem); }
+
+    .hero::before {
+        width: 190px;
+        height: 190px;
+        top: 120px;
+        right: -30px;
+    }
 }

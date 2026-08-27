@@ -7,17 +7,16 @@ import "./MusicCard.css";
 import PlayButton from "./PlayerControls/PlayButton/PlayButton";
 import SongInfo from "./PlayerControls/SongInfo/SongInfo";
 
-export default function MusicCard({ song, onPlay,currentSong, isPlaying}) {
-    
-    
-    return (
-    <div className="music-row">
-    <PlayButton  song={song} onPlay={onPlay} currentSong={currentSong} isPlaying={isPlaying} />
-    <SongInfo song={song} />            
+export default function MusicCard({ song, onPlay, currentSong, isPlaying }) {
+  return (
+    <div className="music-row" data-song-id={song.id}>
+      <PlayButton
+        song={song}
+        onPlay={onPlay}
+        currentSong={currentSong}
+        isPlaying={isPlaying}
+      />
+      <SongInfo song={song} />
     </div>
-        
-    );
+  );
 }
-
-
-

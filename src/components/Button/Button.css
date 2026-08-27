@@ -1,14 +1,18 @@
 .explor-btn{
 position: relative;
- display: inline-block;
- color: rgba(255, 255, 255, 0.319);
- font-size: 1.5em;
- letter-spacing: .1em;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ color: var(--ink);
+ font-size: .78rem;
+ letter-spacing: .08em;
  text-transform: uppercase;
-background-color: #262c37;
-padding: 15px 30px;
-transition: .5s;
-width: 100%;
+background-color: var(--blue-soft);
+border: 1px solid var(--line);
+border-radius: 999px;
+padding: 11px 18px;
+transition: .2s ease;
+width: auto;
 justify-content: center;
 margin-top: 20px;
 border: none;
@@ -19,15 +23,14 @@ cursor: pointer;
 
 
 .explor-btn:hover{
-   color: #00eeff;
-   letter-spacing: .25em;
-    text-shadow: .1px .1px 5px #00eeff;
+    color: var(--ink);
+    background: var(--pink-soft);
+    letter-spacing: .1em;
+    transform: translateY(-1px);
 }
 
 .explor-btn span{
- position: absolute;
- display: block;
- background: #00eeff;   
+ display: none;
 }
 
 .explor-btn span:nth-child(1){

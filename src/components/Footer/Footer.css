@@ -1,7 +1,7 @@
 .footer{
     width: 100%;
-    background-color: #262c37;
-    padding: 10px;
+    background: var(--ink);
+    padding: 22px 24px;
     
 }
 
@@ -9,7 +9,7 @@
     list-style: none;
     display: flex;
     gap: 10px;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .footer ul a{
